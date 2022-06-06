@@ -61,3 +61,60 @@ Parameters:
     Description: AMI for Windows EC2
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
     Default: '/aws/service/ami-windows-latest/EC2LaunchV2-Windows_Server-2019-English-Full-Base'
+
+Resources:
+  WindowsEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      AvailabilityZone: "eu-west-1a"
+      IamInstanceProfile:
+        Ref: WindowsEC2InstanceProfile
+      ImageId:
+        Ref: LatestWindowsAmiId
+      InstanceType: "t2.micro"
+      KeyName:
+        Ref: KeyName
+      Monitoring: true
+      SecurityGroupIds: 
+        Ref: SecurityGroupIds 
+      SubnetId:
+        Ref: Subnet
+      Tags: 
+        - Key: Name
+          Value: Windows-Instance
+
+  WindowsEC2InstanceRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+  
+  WindowsInstanceRolePolicy: 
+    Type: "AWS::IAM::Policy"
+    Properties: 
+      PolicyName: "root"
+      PolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - Effect: "Allow"
+            Action:
+            - 's3:Get*'
+            - 's3:List*'
+            Resource: "*"
+      Roles: 
+        - Ref: "WindowsEC2InstanceRole"
+
+  WindowsEC2InstanceProfile:
+    Type: 'AWS::IAM::InstanceProfile'
+    Properties:
+      Path: /
+      Roles:
+        Ref: WindowsEC2InstanceRole  
