@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Metadata:
+ AWS::CloudFormation::Interface:
+
+  ParameterGroups:
+    - 
+      Label:
+        default:  Network configuration 
+      Parameters:
+        - EnvironmentName
+        - VpcCIDR
+        - DataCenterPublicSubnetCIDR
+    
+  ParameterLabels: 
+      VpcCIDR: 
+        default: "What is the IPv4 address space for the VPC?"
+      
+      DataCenterPublicSubnetCIDR:
+        default: "What is the IPv4 address space, for the public subnet in the Availability Zone of the VPC?"
+      
+      EnvironmentName:
+        default: "Which environment name will be prefixed onto each resource created in the template"
+
+Parameters:
+  EnvironmentName:
+    Description: An environment name prefixed onto each resource created in the template and used to identify the resources
+    Type: String
+    Default: DE-Extract
+
+  VpcCIDR:
+    Description: The IPv4 address space, for the VPC
+    Type: String
+    Default: 192.168.0.0/16
+
+  DataCenterPublicSubnetCIDR:
+    Description: The IPv4 address space, for the public subnet in the first Availability Zone of the VPC
+    Type: String
+    Default: 192.168.10.0/24
+

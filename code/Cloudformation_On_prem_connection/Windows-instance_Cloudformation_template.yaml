@@ -117,4 +117,4 @@ Resources:
     Properties:
       Path: /
       Roles:
-        Ref: WindowsEC2InstanceRole  
+        Ref: WindowsEC2InstanceRole 
