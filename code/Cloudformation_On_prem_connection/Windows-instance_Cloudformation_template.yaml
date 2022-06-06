@@ -1,0 +1,63 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Spins up the CloudFormation Windows instance as a stack.
+
+Metadata:
+ AWS::CloudFormation::Interface:
+
+  ParameterGroups:
+    - 
+      Label:
+        default:  Network configuration 
+      Parameters:
+        - VPC
+        - Subnet
+        - SecurityGroupIds
+    -
+      Label: 
+        default: Amazon EC2 Configuration
+      Parameters: 
+        - InstanceType
+        - KeyName
+        - LatestWindowsAmiId
+     
+  ParameterLabels: 
+      VPC: 
+        default: "Which VPC should this instance be deployed to?"
+      
+      Subnet:
+        default: "Which subnet should this instance be deployed to?"
+      
+      KeyName:
+        default: "Name of an existing EC2 Keypair to enable SSH to the instance"
+
+      SecurityGroupIds:
+        default: "Security group id for the resource"
+      
+      InstanceType:
+        default: "Instance type and secifications"
+      
+      LatestWindowsAmiId:
+        default: "The latest AmiId desired"
+
+Parameters: 
+  VPC:
+    Description: VPC to deploy resources into.
+    Type: 'AWS::EC2::VPC::Id'  
+  
+  KeyName: 
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the file server.
+    Type: "AWS::EC2::KeyPair::KeyName"
+    ConstraintDescription: Must be the name of an existing EC2 KeyPair.
+
+  Subnet: 
+    Description: Subnet IDs
+    Type: "List<AWS::EC2::Subnet::Id>"
+      
+  SecurityGroupIds:
+    Description: Specify the security group/s for resources.
+    Type: 'List<AWS::EC2::SecurityGroup::Id>'
+
+  LatestWindowsAmiId:
+    Description: AMI for Windows EC2
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-windows-latest/EC2LaunchV2-Windows_Server-2019-English-Full-Base'
