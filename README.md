@@ -27,9 +27,6 @@ The template is part of the configuration files use to recreate the on-premise s
 *"VPC"* base template which sets up the requisite network infrastructure into which the above resources can be deployed. 
 *"Windows-instance"* template which sets up the on-premise machine which can be used to access the file server. 
 
-**VPC Template**
-**Windows-instance Template**
-
 
 ### Launching Infrastructure via CloudFormation
 
