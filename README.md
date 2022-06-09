@@ -24,9 +24,8 @@ The template is part of the configuration files use to recreate the on-premise s
 
 ### Additional Templates
 
-*"VPC"* base template which sets up the requisite network infrastructure into which the above resources can be deployed. What's more, you'll also need to write a second *"Windows-instance"* template which sets up the on-premise machine which can be used to access the file server declared in the above subsection. 
-
-Not wanting you to spend forever figuring this out, your boss reassures you with a full list of the resources and inputs that need to be included in each of the respective templates: 
+*"VPC"* base template which sets up the requisite network infrastructure into which the above resources can be deployed. 
+*"Windows-instance"* template which sets up the on-premise machine which can be used to access the file server. 
 
 **VPC Template**
 **Windows-instance Template**
