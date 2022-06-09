@@ -30,10 +30,27 @@ Not wanting you to spend forever figuring this out, your boss reassures you with
 **VPC Template**
 **Windows-instance Template**
 
-#### Launching Infrastructure via CloudFormation
+# Launching Infrastructure via CloudFormation
 
-**1) VPC Stack Launch**
-**2) Windows Instance Stack Launch**
-**3) Linux Instance Stack Launch**
+**VPC Stack Launch**
 
-### Setting Up a File Gateway 
+**Windows Instance Stack Launch**
+
+**Linux Instance Stack Launch**
+
+# Setting Up a File Gateway 
+
+**Established Connectivity with the On-Premise Windows Instance**
+**Created an S3 File Gateway Resource Bucket**
+**Configured and Deployed an AWS File Gateway**
+
+# Configuring and Mounting the NFS File Share 
+
+set up a corresponding NFS-based file share that will be responsible for receiving data during the on-premise to cloud migration.  The file share is mounted to the organisation's file server (Linux instance) in order to facilitate seamless data transfer to the cloud. 
+
+**4.1) NFS Creation**
+**4.2) File Server Connection and NFS Mounting**
+
+### Step 5: Configuring Alarm Triggers
+
+
