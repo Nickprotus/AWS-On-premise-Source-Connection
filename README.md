@@ -20,3 +20,20 @@ The template is part of the configuration files use to recreate the on-premise s
  - *Security Group*: A list of security group Id's which can be associated with the deployed instance.
  - *KeyName*: The name of a previously created AWS key pair which is associated with the Linux instance. 
  - *Linux AMI*: The Amazon Machine Image (AMI) which is used to configure the EC2 instance. This input specifies the latest version of Amazon's Linux as the AMI to use. 
+
+# Additional Templates
+
+*"VPC"* base template which sets up the requisite network infrastructure into which the above resources can be deployed. What's more, you'll also need to write a second *"Windows-instance"* template which sets up the on-premise machine which can be used to access the file server declared in the above subsection. 
+
+Not wanting you to spend forever figuring this out, your boss reassures you with a full list of the resources and inputs that need to be included in each of the respective templates: 
+
+**VPC Template**
+**Windows-instance Template**
+
+#### Launching Infrastructure via CloudFormation
+
+**1) VPC Stack Launch**
+**2) Windows Instance Stack Launch**
+**3) Linux Instance Stack Launch**
+
+### Setting Up a File Gateway 
