@@ -4,7 +4,7 @@ Provisioned Infrastructure using AWS CloudFormation - a service that allows one 
 
 # YAML Template - The On-Premise File Server
 
-After you've spent some time learning about YAML and CloudFormation, your boss decides it's time to give you a nudge in the right direction and shares the following YAML file with you: [Linux-instance-template](code/part1/student_linux_template.yml). 
+The EXPLORE Data Science Academy shared the following YAML file: [Linux-instance-template](code/part1/student_linux_template.yml). 
 
 The template is part of the configuration files use to recreate the on-premise source connection scenario, and is responsible for setting up the following infrastructure via AWS CloudFormation: 
 
@@ -21,7 +21,7 @@ The template is part of the configuration files use to recreate the on-premise s
  - *KeyName*: The name of a previously created AWS key pair which is associated with the Linux instance. 
  - *Linux AMI*: The Amazon Machine Image (AMI) which is used to configure the EC2 instance. This input specifies the latest version of Amazon's Linux as the AMI to use. 
 
-# Additional Templates
+### Additional Templates
 
 *"VPC"* base template which sets up the requisite network infrastructure into which the above resources can be deployed. What's more, you'll also need to write a second *"Windows-instance"* template which sets up the on-premise machine which can be used to access the file server declared in the above subsection. 
 
@@ -30,7 +30,7 @@ Not wanting you to spend forever figuring this out, your boss reassures you with
 **VPC Template**
 **Windows-instance Template**
 
-# Launching Infrastructure via CloudFormation
+### Launching Infrastructure via CloudFormation
 
 **VPC Stack Launch**
 
@@ -38,19 +38,21 @@ Not wanting you to spend forever figuring this out, your boss reassures you with
 
 **Linux Instance Stack Launch**
 
-# Setting Up a File Gateway 
+### Setting Up a File Gateway 
 
 **Established Connectivity with the On-Premise Windows Instance**
+
 **Created an S3 File Gateway Resource Bucket**
+
 **Configured and Deployed an AWS File Gateway**
 
-# Configuring and Mounting the NFS File Share 
+### Configuring and Mounting the NFS File Share 
 
-set up a corresponding NFS-based file share that will be responsible for receiving data during the on-premise to cloud migration.  The file share is mounted to the organisation's file server (Linux instance) in order to facilitate seamless data transfer to the cloud. 
+Set up a corresponding NFS-based file share that will be responsible for receiving data during the on-premise to cloud migration. The file share is mounted to the organisation's file server (Linux instance) in order to facilitate seamless data transfer to the cloud. 
 
 **4.1) NFS Creation**
 **4.2) File Server Connection and NFS Mounting**
 
-### Step 5: Configuring Alarm Triggers
+### Configuring Alarm Triggers
 
-
+Having mounted the NFS file share onto the Linux instance file server, I configured a metric-based CloudWatch alarm which will trigger when a data transfer over a specified threshold is exceeded. 
