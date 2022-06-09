@@ -2,7 +2,7 @@
 
 Provisioned Infrastructure using AWS CloudFormation - a service that allows one to manage infrastructure as code.
 
-# YAML Template - The On-Premise File Server
+### YAML Template - The On-Premise File Server
 
 The EXPLORE Data Science Academy shared the following YAML file: [Linux-instance-template](code/part1/student_linux_template.yml). 
 
@@ -21,6 +21,7 @@ The template is part of the configuration files use to recreate the on-premise s
  - *KeyName*: The name of a previously created AWS key pair which is associated with the Linux instance. 
  - *Linux AMI*: The Amazon Machine Image (AMI) which is used to configure the EC2 instance. This input specifies the latest version of Amazon's Linux as the AMI to use. 
 
+
 ### Additional Templates
 
 *"VPC"* base template which sets up the requisite network infrastructure into which the above resources can be deployed. What's more, you'll also need to write a second *"Windows-instance"* template which sets up the on-premise machine which can be used to access the file server declared in the above subsection. 
@@ -30,11 +31,13 @@ Not wanting you to spend forever figuring this out, your boss reassures you with
 **VPC Template**
 **Windows-instance Template**
 
+
 ### Launching Infrastructure via CloudFormation
 
 VPC Stack Launch
 Windows Instance Stack Launch
 Linux Instance Stack Launch
+
 
 ### Setting Up a File Gateway 
 
@@ -42,12 +45,14 @@ Established Connectivity with the On-Premise Windows Instance
 Created an S3 File Gateway Resource Bucket
 Configured and Deployed an AWS File Gateway
 
+
 ### Configuring and Mounting the NFS File Share 
 
 Set up a corresponding NFS-based file share that will be responsible for receiving data during the on-premise to cloud migration. The file share is mounted to the organisation's file server (Linux instance) in order to facilitate seamless data transfer to the cloud. 
 
 NFS Creation
 File Server Connection and NFS Mounting
+
 
 ### Configuring Alarm Triggers
 
